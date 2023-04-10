@@ -1,0 +1,28 @@
+<div style="display: flex; justify-content: space-around; margin-top: 20px;">
+    <h1>Buy your favourite dish</h1>
+    <mat-form-field appearance="outline" class="form-group">
+        <mat-label>Search Dish</mat-label>
+        <input type="text" matInput [(ngModel)]="searchText">
+    </mat-form-field>
+</div>
+
+<mat-grid-list cols="4" rowHeight="400px" *ngIf="dishes">
+    <mat-grid-tile *ngFor="let dish of dishes | search: searchText">
+        <mat-card class="mat-card">
+            <img style="border-radius: 5px; height: 150px;" sizes="100px" mat-card-image src="{{dish.dishImage}}"
+                alt="Dish Photo">
+            <mat-card-content>
+                <mat-card-title>{{ dish.dishName }}</mat-card-title>
+                <mat-card-subtitle>{{ dish.dishType }}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-subtitle>{{dish.dishDescription}}</mat-card-subtitle>
+            <mat-card-title>₹{{ dish.dishPrice }}</mat-card-title>
+            <mat-card-actions style="display: flex; justify-content: center;">
+                <button mat-raised-button color="accent" (click)="addToCart(dish)">Add to cart</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+<div align="center">
+    <button mat-raised-button color="primary" routerLink="/cart/1">Go to Cart</button>
+</div>

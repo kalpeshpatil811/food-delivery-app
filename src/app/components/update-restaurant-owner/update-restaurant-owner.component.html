@@ -1,0 +1,81 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Restaurant Owner's Details </h3>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm" ngNativeValidate>
+        
+<div class="form-group">
+    <label>First Name</label>
+    <input type="text" class="form-control" id="firstName" [(ngModel)]="restaurantOwner.ownerFirstName" name="firstName"
+        required #firstNameField="ngModel">
+    <div [hidden]="firstNameField.valid || firstNameField.untouched" class="alert alert-danger">
+        Enter First Name
+    </div>
+</div>
+
+<div class="form-group">
+    <label> Last Name</label>
+    <input type="text" class="form-control" id="lastName" [(ngModel)]="restaurantOwner.ownerLastName" name="lastName"
+        required #lastNameField="ngModel">
+    <div [hidden]="lastNameField.valid || lastNameField.untouched" class="alert alert-danger">
+        Enter Last Name
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Restaurant Name</label>
+    <input type="text" class="form-control" id="restaurantName" [(ngModel)]="restaurantOwner.restaurantName"
+        name="restaurantName" required #restaurantNameField="ngModel">
+    <div [hidden]="restaurantNameField.valid || restaurantNameField.untouched" class="alert alert-danger">
+        Enter Restaurant Name
+    </div>
+</div>
+
+<div class="form-group">
+    <label> Mobile Number</label>
+    <input type="text" class="form-control" id="mobileNumber" [(ngModel)]="restaurantOwner.restaurantMobile"
+        name="mobileNumber" pattern="[0-9]{10}" required #mobileNumberField="ngModel">
+    <div [hidden]="mobileNumberField.valid || mobileNumberField.untouched" class="alert alert-danger">
+        Mobile Number Required
+    </div>
+</div>
+
+<div class="form-group">
+    <label> Email Id</label>
+    <input type="text" class="form-control" id="email" [(ngModel)]="restaurantOwner.login.email" name="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required #email="ngModel">
+    <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+        Email Required
+    </div>
+</div>
+
+<div class="form-group">
+    <label> City</label>
+    <input type="text" class="form-control" id="city" [(ngModel)]="restaurantOwner.restaurantCity" name="city" required
+        #city="ngModel">
+    <div [hidden]="city.valid || city.untouched" class="alert alert-danger">
+        City Required
+    </div>
+</div>
+
+<div class="form-group">
+    <label> State</label>
+    <input type="text" class="form-control" id="State" [(ngModel)]="restaurantOwner.restaurantState" name="State"
+        required #State="ngModel">
+    <div [hidden]="State.valid || State.untouched" class="alert alert-danger">
+        State is Required
+    </div>
+</div>
+
+<div class="form-group">
+    <label> Pin Code</label>
+    <input type="text" class="form-control" id="pincode" [(ngModel)]="restaurantOwner.restaurantPincode" name="pincode"
+        pattern="[0-9]{6}" required #pincode="ngModel">
+    <div [hidden]="pincode.valid || pincode.untouched" class="alert alert-danger">
+        Pincode Required
+    </div>
+</div>
+
+<div class="form-group" style="padding-bottom:50px">
+    <button class="btn btn-success" type="submit" [disabled]="!myForm.form.valid" style="margin-top:8px">Submit</button>
+</div>
+</form>
+</div>

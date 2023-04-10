@@ -1,0 +1,39 @@
+<div style="min-height: 78vh;">
+    <h2>Restaurant Owner's List</h2>
+    <table class="table table-striped">
+        <thead>
+
+            <tr>
+                <th> Restaurant Name</th>
+                <th> Owner's Name</th>
+                <th> Email</th>
+                <th> Mobile Number</th>
+                <th> City</th>
+                <th> State</th>
+                <th> Actions</th>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let restaurantOwner of restaurantOwners">
+                <td> {{ restaurantOwner.restaurantName }} </td>
+                <td> {{ restaurantOwner.ownerFirstName +" "+ restaurantOwner.ownerLastName}} </td>
+                <td> {{ restaurantOwner.login.email }} </td>
+                <td> {{ restaurantOwner.restaurantMobile }} </td>
+                <td> {{ restaurantOwner.restaurantCity }} </td>
+                <td> {{ restaurantOwner.restaurantState }} </td>
+                <td>
+                    <button (click)="updateRestaurantOwner(restaurantOwner.restaurantId)"
+                        class="btn btn-info">Update</button>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+
+                    <button (click)="deleteRestaurantOwner(restaurantOwner.restaurantId)" class="btn btn-danger"
+                        style="margin-left: 10px">
+                        Delete</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

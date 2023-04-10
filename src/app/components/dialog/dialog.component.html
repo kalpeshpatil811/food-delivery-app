@@ -1,0 +1,64 @@
+<h3 mat-dialog-title>Add/Update Dish</h3>
+<div mat-dialog-content>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <!-- ngNativeValidate -->
+
+        <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Dish Name</mat-label>
+            <input type="text" id="dishName" required matInput placeholder="Eg. Thali" [(ngModel)]="dish.dishName"
+                name="dishName" required #dishNameField="ngModel">
+            <div [hidden]="dishNameField.valid || dishNameField.untouched" class="alert alert-danger">
+                Enter Dish Name
+            </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Dish Type</mat-label>
+            <mat-select type="text" id="dishType" placeholder="Dish Type" [(ngModel)]="dish.dishType" name="dishType"
+                required #dishTypeField="ngModel">
+                <div [hidden]="dishTypeField.valid || dishTypeField.untouched" class="alert alert-danger">
+                    Select Dish Type
+                </div>>
+                <mat-option value="Breakfast">Breakfast</mat-option>
+                <mat-option value="Lunch">Lunch</mat-option>
+                <mat-option value="Dinner">Dinner</mat-option>
+                <mat-option value="Lunch">Lunch And Dinner</mat-option>
+                <mat-option value="Sweet">Sweet</mat-option>
+                <mat-option value="Beverage">Beverage</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Dish Description</mat-label>
+            <input type="text" id="dishDescription" matInput placeholder="Delicious" [(ngModel)]="dish.dishDescription"
+                name="dishDescription" required #dishDescriptionField="ngModel">
+            <div [hidden]="dishDescriptionField.valid || dishDescriptionField.untouched" class="alert alert-danger">
+                Enter Dish Description
+            </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Dish Price</mat-label>
+            <input type="number" id="dishPrice" matInput placeholder="99" required [(ngModel)]="dish.dishPrice"
+                name="dishPrice" required #dishPriceField="ngModel">
+            <div [hidden]="dishPriceField.valid || dishPriceField.untouched" class="alert alert-danger">
+                Enter Dish Price
+            </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Image url</mat-label>
+            <input type="type" id="dishImage" matInput placeholder="Dish Image" [(ngModel)]="dish.dishImage"
+                name="dishImage" required #dishImageField="ngModel">
+            <div [hidden]="dishImageField.valid || dishImageField.untouched" class="alert alert-danger">
+                Enter Dish Image URL
+            </div>
+        </mat-form-field>
+
+        <div mat-dialog-actions [align]="'center'">
+            <button type="submit" [disabled]="!myForm.form.valid" mat-raised-button color="primary"
+                mat-dialog-close>Save</button>
+            <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        </div>
+    </form>
+</div>

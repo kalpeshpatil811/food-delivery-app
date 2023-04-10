@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <!-- <mat-icon>fastfood</mat-icon> -->
+  <a class="navbar-brand" routerLink="/">
+    <img src="../assets/icons/burger.png" width="30" height="30" class="d-inline-block align-top" alt="">
+  </a>
+  <span mat-button routerLink="/">Food Delivery App</span>
+  <button mat-button routerLink="/home-page">Home</button>
+  <button mat-button routerLink="/about-us">About Us</button>
+  <button mat-button routerLink="/contact-us">Contact Us</button>
+  <!-- <button mat-button routerLink="/create-customer">New Customer</button> -->
+  <!-- <button mat-button routerLink="/customers">Customer List</button> -->
+
+  <!-- <button mat-button routerLink="/dishes-list">Owner Dishes</button> -->
+  <!-- <button mat-button routerLink="/customer-add-to-cart">Dishes</button> -->
+  <div style="flex: 1 1 auto;"></div>
+  <!-- <button mat-button routerLink="/cart/1">Cart</button> -->
+  <!-- <button mat-button routerLink="/about-us">About</button>
+  <button mat-button routerLink="/contact-us">Contact Us</button> -->
+  <button mat-button routerLink="/login">Login</button>
+  <!-- <button mat-button (click)="onLogout()">Logout</button> -->
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+  <div>
+    &copy; Copyright <strong><span>Food Delivery App</span></strong>. All Rights Reserved to Group 7
+  </div>
+</footer>

@@ -1,0 +1,32 @@
+<div style="display: flex; justify-content: space-around; margin-top: 20px;">
+    <h1>Dishes List</h1>
+    <mat-form-field appearance="outline" class="form-group">
+        <mat-label>Search Dish</mat-label>
+        <input type="text" matInput [(ngModel)]="searchText">
+    </mat-form-field>
+</div>
+
+
+<mat-grid-list cols="4" rowHeight="400px" *ngIf="dishes">
+    <mat-grid-tile *ngFor="let dish of dishes | search: searchText">
+        <mat-card class="mat-card">
+            <img style="border-radius: 5px; height: 150px;" sizes="100px" mat-card-image src="{{dish.dishImage}}"
+                alt="Dish Photo">
+            <mat-card-content>
+                <mat-card-title>{{ dish.dishName }}</mat-card-title>
+                <mat-card-subtitle>{{ dish.dishType }}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-subtitle>{{dish.dishDescription}}</mat-card-subtitle>
+            <mat-card-title>₹{{ dish.dishPrice }}</mat-card-title>
+            <mat-card-actions style="display: flex; justify-content: center;">
+                <button mat-raised-button color="primary" (click)="editDish(dish)">Update</button>
+                <button mat-raised-button color="accent" (click)="deleteDish(dish.dishId)">Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+<div mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="openDialog()">Add Dish</button>
+</div>

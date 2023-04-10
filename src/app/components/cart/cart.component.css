@@ -1,0 +1,34 @@
+.cart {
+    min-height: 69vh;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cart-item-card {
+    min-width: 400px;
+    max-width: 500px;
+    margin-bottom: 10px;
+}
+
+.cart-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-width: 300px;
+    min-height: 30vh;
+    max-height: 40vh;
+}
+
+@media screen and (max-width: 799px) {
+    .cart {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list-cart-item {
+        margin-bottom: 40px;
+    }
+}
